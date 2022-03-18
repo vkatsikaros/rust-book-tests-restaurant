@@ -34,7 +34,12 @@ mod back_of_house {
     }
 }
 
+use crate::front_of_house::hosting;
+
 pub fn eat() {
+
+    hosting::add_to_waitlist();
+
     // create summer breakfast with Rye toast
     let mut meal = back_of_house::Breakfast::summer("Rye");
 
