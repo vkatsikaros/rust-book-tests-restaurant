@@ -7,17 +7,6 @@ mod tests {
     }
 }
 
-
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-    }
-
-    mod serving {
-        fn take_order() {}
-    }
-}
-
 mod back_of_house {
     pub struct Breakfast {
         pub toast: String,
@@ -34,11 +23,15 @@ mod back_of_house {
     }
 }
 
-use crate::front_of_house::hosting;
+// Using a semicolon after mod front_of_house rather than using a
+// block tells Rust to load the contents of the module from another
+// file with the same name as the module
+mod front_of_house;
+//use self::front_of_house::hosting;
 
 pub fn eat() {
 
-    hosting::add_to_waitlist();
+    front_of_house::hosting::add_to_waitlist();
 
     // create summer breakfast with Rye toast
     let mut meal = back_of_house::Breakfast::summer("Rye");
