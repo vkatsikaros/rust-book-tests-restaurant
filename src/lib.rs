@@ -27,11 +27,11 @@ mod back_of_house {
 // block tells Rust to load the contents of the module from another
 // file with the same name as the module
 mod front_of_house;
-//use self::front_of_house::hosting;
+use self::front_of_house::hosting;
 
 pub fn eat() {
 
-    front_of_house::hosting::add_to_waitlist();
+    hosting::add_to_waitlist();
 
     // create summer breakfast with Rye toast
     let mut meal = back_of_house::Breakfast::summer("Rye");
